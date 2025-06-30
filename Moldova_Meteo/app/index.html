@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vremea în Republica Moldova</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="top-bar">
+  <div id="exchange-rate"> Curs EUR/MDL:<br>💱 <span id="eur-mdl">Se încarcă...</span></div>
+    <h1>🌤️ Vremea în Republica Moldova</h1>
+  <div id="clock">🕒 <span id="time">--:--:--</span></div>
+</div>
+<div id="city-list-button-container">
+  <button class="tob_menu_button" id="btn-lista-orase" onclick="location.href='lista-orase.html'">Lista orașelor din Moldova</button>
+  <button class="tob_menu_button" id="btn-capitale-lumii" onclick="location.href='capitale-lumii.html'">Capitalele lumii</button>
+  <button class="tob_menu_button" id="harta-meteo" onclick="window.open('https://www.meteo.md', '_blank')">Harta Meteo Oficiala</button>
+</div>
+
+  <div id="map-container">
+    <svg id="svg-map" viewBox="0 0 900 1150" preserveAspectRatio="xMidYMid meet">
+      <!-- Harta contur Moldova -->
+      <image href="https://simplemaps.com/static/svg/country/md/admin1/md.svg" x="0" y="0" width="1000" height="1200" />
+
+      <!-- Butoane orașe -->
+      <g id="city-labels">
+        <foreignObject x="550" y="555" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Chișinău')">18.8°C<br/>Chișinău</div>
+        </foreignObject>
+
+        <foreignObject x="420" y="970" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Cahul')">19.5°C<br/>Cahul</div>
+        </foreignObject>
+        
+        <foreignObject x="750" y="670" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Tiraspol')">18.8°C<br/>Tiraspol</div>
+        </foreignObject>
+        
+        <foreignObject x="400" y="350" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Bălți')">18.8°C<br/>Bălți</div>
+        </foreignObject>
+        
+        <foreignObject x="650" y="760" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Căușeni')">18.8°C<br/>Căușeni</div>
+        </foreignObject>
+        
+        <foreignObject x="370" y="450" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Ungheni')">18.8°C<br/>Ungheni</div>
+        </foreignObject>
+
+        <foreignObject x="650" y="300" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Rîbnița')">18.8°C<br/>Rîbnița</div>
+        </foreignObject>
+        
+        <foreignObject x="460" y="170" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Soroca')">18.8°C<br/>Soroca</div>
+        </foreignObject>
+        
+        <foreignObject x="160" y="100" width="100" height="50">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="city-button" onclick="showWeather('Briceni')">18.8°C<br/>Briceni</div>
+        </foreignObject>
+        <!-- Adaugă alte orașe aici -->
+      </g>
+    </svg>
+  </div>
+
+  <div id="weather-details" class="hidden">
+    <h2 id="city-name">Oraș</h2>
+    <div class="tabs">
+      <button data-days="3" class="active">3 zile</button>
+      <button data-days="10">10 zile</button>
+      <button data-days="15">15 zile</button>
+    </div>
+    <div id="weather-info">Se încarcă...</div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

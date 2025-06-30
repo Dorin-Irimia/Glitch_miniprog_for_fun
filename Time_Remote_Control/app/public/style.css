@@ -1,0 +1,92 @@
+/* Stiluri generale */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#workModeButton.AUTO {
+    background-color: green;
+}
+
+#workModeButton.MANUAL {
+    background-color: orange;
+}
+
+#workModeButton.sending {
+    background-color: grey;
+}
+
+#workModeButton.error {
+    background-color: red;
+}
+
+#date-esp32, #data-workMode, #data-afisare-ore-stocate {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.4em;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#oraStart {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+/* Stiluri pentru telefon */
+@media (max-width: 768px) {
+    body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    
+    button {
+        width: 100%;
+        padding: 20px;
+        font-size: 1.5em;
+    }
+    
+    #date-esp32, #data-workMode, #data-afisare-ore-stocate {
+        font-size: 1.5em;
+        padding: 20px;
+        width: 100%;
+    }
+}

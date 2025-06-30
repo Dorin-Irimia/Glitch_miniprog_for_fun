@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lista orașelor din Moldova</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background: linear-gradient(to right, #e0f7fa, #fff);
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00796b;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 20px;
+    }
+
+    li {
+      margin: 10px 0;
+      break-inside: avoid;
+    }
+
+    a {
+      display: inline-block;
+      width: 100%;
+      padding: 10px 2px;
+      background-color: #e0f2f1;
+      color: #00695c;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: #b2dfdb;
+      text-decoration: none;
+      color: #004d40;
+    }
+
+    button {
+      display: list;
+      margin: 10px auto 0;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #00796b;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+    button.active {
+  background: #0056b3;
+  
+}
+
+    @media (max-width: 600px) {
+      ul {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📍 Lista orașelor din Moldova</h1>
+    <div class="city-list">
+  <ul style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+    <li><a href="index.html?city=Chișinău" onclick="showWeather('Chișinău'); return false;"><div class="city-button">Chișinău</div></a></li>
+    <li><a href="index.html?city=Bălți" onclick="showWeather('Bălți'); return false;"><div class="city-button">Bălți</div></a></li>
+    <li><a href="index.html?city=Tiraspol" onclick="showWeather('Tiraspol'); return false;"><div class="city-button">Tiraspol</div></a></li>
+    <li><a href="index.html?city=Bender" onclick="showWeather('Bender'); return false;"><div class="city-button">Bender</div></a></li>
+    <li><a href="index.html?city=Rîbnița" onclick="showWeather('Rîbnița'); return false;"><div class="city-button">Rîbnița</div></a></li>
+    <li><a href="index.html?city=Soroca" onclick="showWeather('Soroca'); return false;"><div class="city-button">Soroca</div></a></li>
+    <li><a href="index.html?city=Cahul" onclick="showWeather('Cahul'); return false;"><div class="city-button">Cahul</div></a></li>
+    <li><a href="index.html?city=Ungheni" onclick="showWeather('Ungheni'); return false;"><div class="city-button">Ungheni</div></a></li>
+    <li><a href="index.html?city=Căușeni" onclick="showWeather('Căușeni'); return false;"><div class="city-button">Căușeni</div></a></li>
+    <li><a href="index.html?city=Orhei" onclick="showWeather('Orhei'); return false;"><div class="city-button">Orhei</div></a></li>
+    <li><a href="index.html?city=Strășeni" onclick="showWeather('Strășeni'); return false;"><div class="city-button">Strășeni</div></a></li>
+    <li><a href="index.html?city=Edineț" onclick="showWeather('Edineț'); return false;"><div class="city-button">Edineț</div></a></li>
+    <li><a href="index.html?city=Glodeni" onclick="showWeather('Glodeni'); return false;"><div class="city-button">Glodeni</div></a></li>
+    <li><a href="index.html?city=Hîncești" onclick="showWeather('Hîncești'); return false;"><div class="city-button">Hîncești</div></a></li>
+    <li><a href="index.html?city=Cimișlia" onclick="showWeather('Cimișlia'); return false;"><div class="city-button">Cimișlia</div></a></li>
+    <li><a href="index.html?city=Șoldănești" onclick="showWeather('Șoldănești'); return false;"><div class="city-button">Șoldănești</div></a></li>
+    <li><a href="index.html?city=Florești" onclick="showWeather('Florești'); return false;"><div class="city-button">Florești</div></a></li>
+    <li><a href="index.html?city=Rezina" onclick="showWeather('Rezina'); return false;"><div class="city-button">Rezina</div></a></li>
+    <li><a href="index.html?city=Basarabeasca" onclick="showWeather('Basarabeasca'); return false;"><div class="city-button">Basarabeasca</div></a></li>
+    <li><a href="index.html?city=Briceni" onclick="showWeather('Briceni'); return false;"><div class="city-button">Briceni</div></a></li>
+    <li><a href="index.html?city=Taraclia" onclick="showWeather('Taraclia'); return false;"><div class="city-button">Taraclia</div></a></li>
+    <li><a href="index.html?city=Ștefan Vodă" onclick="showWeather('Ștefan Vodă'); return false;"><div class="city-button">Ștefan Vodă</div></a></li>
+    <li><a href="index.html?city=Călărași" onclick="showWeather('Călărași'); return false;"><div class="city-button">Călărași</div></a></li>
+    <li><a href="index.html?city=Anenii Noi" onclick="showWeather('Anenii Noi'); return false;"><div class="city-button">Anenii Noi</div></a></li>
+    <li><a href="index.html?city=Leova" onclick="showWeather('Leova'); return false;"><div class="city-button">Leova</div></a></li>
+    <li><a href="index.html?city=Dubăsari" onclick="showWeather('Dubăsari'); return false;"><div class="city-button">Dubăsari</div></a></li>
+    <li><a href="index.html?city=Sângerei" onclick="showWeather('Sângerei'); return false;"><div class="city-button">Sângerei</div></a></li>
+  </ul>
+</div>
+
+
+<div id="weather-details" class="hidden">
+    <h2 id="city-name">Selecteaza un oras</h2>
+    <div class="tabs">
+      <button data-days="3" class="active">3 zile</button>
+      <button data-days="10">10 zile</button>
+      <button data-days="15">15 zile</button>
+    </div>
+    <div id="weather-info"></div>
+  </div>
+    
+    <button onclick="location.href='index.html'">🔙 Înapoi</button>
+  </div>
+     <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+            showWeather('Chișinău');
+          });
+  </script>
+  
+</body>
+</html>
+

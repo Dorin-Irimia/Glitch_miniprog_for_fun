@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Capitale ale lumii - Vreme și Oră</title>
+  <style>
+    @media (min-width: 769px) {
+        #mobile-cards {
+          display: none;
+        }
+
+        #capitals-table {
+          display: table;
+        }
+      }
+    
+    
+    body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #0d0d0d;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='52' viewBox='0 0 60 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 17v18l-30 17L0 35V17z' fill='%23666666' fill-opacity='0.1'/%3E%3C/svg%3E"),
+    linear-gradient(-45deg, #f8f8f8, #f8f8f8, #f8f8f8, #f8f8f8);
+  background-size: 60px 52px, 400% 400%;
+  background-blend-mode: overlay;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%, 0 0;}
+  50% {background-position: 100% 50%, 0 0;}
+  100% {background-position: 0% 50%, 0 0;}
+}
+
+
+
+
+    h1 {
+      text-align: center;
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 600px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    img.flag {
+      width: 32px;
+      height: 20px;
+    }
+
+    button {
+      display: block;
+      margin: 0 auto 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #00796b;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    /* Stil pentru carduri pe mobil */
+       @media (max-width: 768px) {
+        #mobile-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        #capitals-table {
+          display: none;
+        }
+
+
+
+      table {
+        display: none;
+      }
+
+      .card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .card {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .card img.flag {
+        width: 24px;
+        height: 16px;
+        vertical-align: middle;
+      }
+
+      .card h2 {
+        margin: 0 0 5px;
+        font-size: 1.1em;
+        color: #00796b;
+      }
+
+      .card p {
+        margin: 4px 0;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌍 Principalele capitale ale lumii</h1>
+
+  <div class="table-container">
+    <table id="capitals-table">
+      <thead>
+        <tr>
+          <th>Țara</th>
+          <th>Capitala</th>
+          <th>Steagul</th>
+          <th>Temperatura max (zi)</th>
+          <th>Temperatura min (noapte)</th>
+          <th>Vânt (km/h)</th>
+          <th>Precipitații (%)</th>
+          <th>Ora locală</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="8">Se încarcă datele...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card-list" id="mobile-cards"></div>
+  </div>
+
+  <button onclick="location.href='index.html'">Înapoi</button>
+
+  <script>
+    const capitals = [
+      { country: "Statele Unite", capital: "Washington D.C.", lat: 38.89511, lon: -77.03637, flag: "https://flagcdn.com/us.svg" },
+      { country: "China", capital: "Beijing", lat: 39.9042, lon: 116.4074, flag: "https://flagcdn.com/cn.svg" },
+      { country: "India", capital: "New Delhi", lat: 28.61394, lon: 77.20902, flag: "https://flagcdn.com/in.svg" },
+      { country: "Japonia", capital: "Tokyo", lat: 35.6895, lon: 139.69171, flag: "https://flagcdn.com/jp.svg" },
+      { country: "Germania", capital: "Berlin", lat: 52.52, lon: 13.405, flag: "https://flagcdn.com/de.svg" },
+      { country: "Franța", capital: "Paris", lat: 48.8566, lon: 2.3522, flag: "https://flagcdn.com/fr.svg" },
+      { country: "Regatul Unit", capital: "Londra", lat: 51.5074, lon: -0.1278, flag: "https://flagcdn.com/gb.svg" },
+      { country: "Brazilia", capital: "Brasília", lat: -15.7939, lon: -47.8828, flag: "https://flagcdn.com/br.svg" },
+      { country: "Canada", capital: "Ottawa", lat: 45.4215, lon: -75.6995, flag: "https://flagcdn.com/ca.svg" },
+      { country: "Australia", capital: "Canberra", lat: -35.2809, lon: 149.13, flag: "https://flagcdn.com/au.svg" },
+      { country: "Italia", capital: "Roma", lat: 41.9028, lon: 12.4964, flag: "https://flagcdn.com/it.svg" },
+      { country: "Rusia", capital: "Moscova", lat: 55.7558, lon: 37.6173, flag: "https://flagcdn.com/ru.svg" },
+      { country: "Mexic", capital: "Mexico City", lat: 19.4326, lon: -99.1332, flag: "https://flagcdn.com/mx.svg" },
+      { country: "Africa de Sud", capital: "Pretoria", lat: -25.7479, lon: 28.2293, flag: "https://flagcdn.com/za.svg" },
+      { country: "Coreea de Sud", capital: "Seul", lat: 37.5665, lon: 126.978, flag: "https://flagcdn.com/kr.svg" },
+      { country: "Republica Moldova", capital: "Chișinău", lat: 47.0105, lon: 28.8638, flag: "https://flagcdn.com/md.svg" },
+      { country: "România", capital: "București", lat: 44.4268, lon: 26.1025, flag: "https://flagcdn.com/ro.svg" },
+      { country: "Ucraina", capital: "Kiev", lat: 50.4501, lon: 30.5234, flag: "https://flagcdn.com/ua.svg" }
+    ];
+
+     const weatherIcons = { 0: "☀️",1: "🌤️",2: "⛅",3: "☁️",45: "🌫️",48: "🌫️❄️",51: "🌦️",53: "🌧️",
+                          55: "🌧️",56: "🌧️❄️",57: "🌧️❄️",61: "🌦️",63: "🌧️",65: "🌧️💧",66: "🌧️❄️",
+                          67: "🌧️❄️",71: "🌨️",73: "🌨️",75: "❄️🌨️",77: "🌨️",80: "🌦️",81: "🌧️",82: "⛈️",
+                          85: "🌨️",86: "❄️🌨️",95: "🌩️",96: "⛈️🌨️",99: "⛈️❄️"
+                        };
+
+    const tableBody = document.querySelector("#capitals-table tbody");
+    const mobileCards = document.querySelector("#mobile-cards");
+    const timeData = {};
+
+    async function fetchWeather(lat, lon) {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max,windspeed_10m_max&current_weather=true&timezone=auto&forecast_days=1`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Eroare API");
+      return await res.json();
+    }
+
+    function formatLocalTime(date, timeZone) {
+      return date.toLocaleTimeString('ro-RO', { hour: '2-digit', minute: '2-digit', timeZone });
+    }
+
+    async function loadCapitalsData() {
+      tableBody.innerHTML = "";
+      mobileCards.innerHTML = "";
+
+      for (const capital of capitals) {
+        try {
+          const weather = await fetchWeather(capital.lat, capital.lon);
+
+          const maxTemp = weather.daily.temperature_2m_max[0];
+          const minTemp = weather.daily.temperature_2m_min[0];
+          const precipitation = weather.daily.precipitation_probability_max[0];
+          const wind = weather.daily.windspeed_10m_max[0];
+          const weatherCode = weather.daily.weathercode[0];
+          const icon = weatherIcons[weatherCode] || "❓";
+
+          const timeISO = weather.current_weather.time;
+          const timeZone = weather.timezone;
+          const dateObj = new Date(timeISO);
+
+          timeData[capital.capital] = {
+            baseDate: dateObj,
+            baseTimestamp: dateObj.getTime(),
+            timeZone: timeZone
+          };
+
+          const row = `
+            <tr data-capital="${capital.capital}">
+              <td>${capital.country}</td>
+              <td>${capital.capital}</td>
+              <td><img class="flag" src="${capital.flag}" alt="Steagul ${capital.country}"></td>
+              <td>${maxTemp}°C ${icon}</td>
+              <td>${minTemp}°C</td>
+              <td>${wind} km/h</td>
+              <td>${precipitation}%</td>
+              <td><span class="local-time">${formatLocalTime(dateObj, timeZone)}</span></td>
+            </tr>
+          `;
+          tableBody.insertAdjacentHTML('beforeend', row);
+
+          const card = `
+            <div class="card" data-capital="${capital.capital}">
+              <h2>${capital.capital}, ${capital.country} <img class="flag" src="${capital.flag}" alt="Steag"></h2>
+              <p><strong>Temperatură max:</strong> ${maxTemp}°C ${icon}</p>
+              <p><strong>Temperatură min:</strong> ${minTemp}°C</p>
+              <p><strong>Vânt:</strong> ${wind} km/h</p>
+              <p><strong>Precipitații:</strong> ${precipitation}%</p>
+              <p><strong>Ora locală:</strong> <span class="local-time">${formatLocalTime(dateObj, timeZone)}</span></p>
+            </div>
+          `;
+          mobileCards.insertAdjacentHTML('beforeend', card);
+        } catch (error) {
+          console.error(`Eroare la încărcarea datelor pentru ${capital.capital}:`, error);
+        }
+      }
+
+      if (tableBody.children.length === 0) {
+        tableBody.innerHTML = "<tr><td colspan='8'>Nu s-au putut încărca datele.</td></tr>";
+      }
+
+      startClockUpdate();
+    }
+
+    function startClockUpdate() {
+      setInterval(() => {
+        const now = Date.now();
+
+        document.querySelectorAll('[data-capital]').forEach(row => {
+          const capitalName = row.getAttribute('data-capital');
+          if (!timeData[capitalName]) return;
+
+          const { baseTimestamp, timeZone } = timeData[capitalName];
+          const updatedDate = new Date(baseTimestamp + (now - baseTimestamp));
+
+          const timeCell = row.querySelector('.local-time');
+          if (timeCell) {
+            timeCell.textContent = formatLocalTime(updatedDate, timeZone);
+          }
+        });
+      }, 1000);
+    }
+
+    loadCapitalsData();
+  </script>
+</body>
+</html>
